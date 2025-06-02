@@ -1,3 +1,5 @@
+const dotenv = require('dotenv')
+dotenv.config();
 function otp(n) {
   let otp = "";
   for (let index = 0; index < n; index++) {
@@ -11,8 +13,8 @@ const transporter = nodemailer.createTransport({
   host: "smtp.gmail.com",
   port: 587,
   auth: {
-    user: "bittuv1314@gmail.com",
-    pass: "joee pdgu yijj yxwa",
+    user: process.env.USER_EMAIL,
+    pass: process.env.USER_PASS,
   },
 });
 const sentOtp = async (email, otp) => {
